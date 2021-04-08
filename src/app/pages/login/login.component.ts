@@ -110,8 +110,6 @@ this.toastr.success('شكرا لك .. مرحبا بك في خليها علينا
 this.loginService.loginwithgoogle().subscribe()
 
           });
-
-
       }
 
       signInWithFB(): void {
