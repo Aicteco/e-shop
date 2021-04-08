@@ -1,0 +1,78 @@
+@import"../../market/market-list/market-list.component.scss";
+@import '../../problem/problem.component.scss';
+.upload-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -27px;
+    margin-bottom: -27px;
+    margin-left: -123px;
+    width: 230px;
+    height: 230px;
+    border: none;
+}
+
+section {
+    background-color: aquamarine;
+    min-height: 92vh;
+}
+
+.btn-secondary {
+    font-family: Arabic3 !important;
+}
+
+.upload-container p {
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    line-height: 32px;
+    margin: auto;
+    color: #008996 !important;
+    font-family: ocean;
+    font-weight: bolder;
+    font-size: 14pt;
+    mix-blend-mode: multiply;
+}
+
+.upload-container input {
+    position: absolute !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    display: block;
+}
+
+input[type=file] {
+    cursor: pointer;
+}
+
+.text-danger {
+    font-family: Arabic3;
+    font-size: 14px;
+}
+
+.services-image {
+    background-image: url('../../../../assets/img/upload.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.btn-primary {
+    font-family: Arabic3;
+    background-color: #EFB773;
+    border: none;
+}
+
+label {
+    color: #EFB773;
+    font-family: Arabic3 !important;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #EFB773;
+    font-family: Arabic3 !important;
+}

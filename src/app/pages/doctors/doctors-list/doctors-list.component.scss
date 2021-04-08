@@ -1,0 +1,27 @@
+@import"../../market/market-list/market-list.component.scss";
+.modal-dialog.modal-notify.modal-success .modal-header {
+    background-color: #ffc107;
+}
+
+td {
+    font-family: Arabic3 !important;
+    text-align: center;
+}
+
+th {
+    font-family: Arabic3 !important;
+    text-align: center;
+}
+
+p {
+    font-size: 15px !important;
+}
+
+.PhoneNumber {
+    font-family: English !important;
+    font-size: 15px !important;
+}
+
+.dropdown-menu {
+    width: fit-content !important;
+}

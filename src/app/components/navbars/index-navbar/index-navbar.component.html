@@ -1,0 +1,266 @@
+<mdb-navbar SideClass="navbar  navbar-dark unique-color" [containerInside]="false">
+
+    <a class="navbar-brand">
+        <i class="fas fa-bars fa-2x" (click)="open()"></i> </a>
+
+
+
+
+
+    <ul class="navbar-nav mr-auto nav-flex-icons">
+        <li class="nav-item">
+            <a class="nav-link  mr-10 text-center">
+              خليها علينا اول موقع وتطبيق لشراء المنتجات وتقديم الخدمات الموجوده من حواليك
+      </a>
+        </li>
+
+
+
+
+    </ul>
+
+
+    <ul class="navbar-nav mr-auto nav-flex-icons">
+        <li class="nav-item">
+            <a class="nav-link" href="https://www.facebook.com/Khliha-Alina-107191591452629/" target="_blank">
+                <i class="fab fa-facebook-f" style="padding-left: 19px;"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://youtube.com/channel/UC5PLSqKI3glakYfXtkk4uOA" target="_blank">
+                <i class="fab fa-youtube" style="padding-left: 19px;"></i>
+            </a>
+        </li>
+
+        <li class="nav-item" *ngIf="!token" (click)="Login()">
+            <a class="nav-link">
+                <i class="fas fa-user" style="padding-left: 10px;"></i>
+            </a>
+        </li>
+
+        <li class="nav-item" *ngIf="token" (click)="logout()">
+            <a class="nav-link">
+                <i class="fas fa-power-off" style="padding-left: 10px;"></i>
+            </a>
+        </li>
+    </ul>
+</mdb-navbar>
+
+
+
+
+<!------------------ Sidebar  -------------->
+<div class="sidebar-container fixed-top " *ngIf="sidebar">
+    <div class="sidebar-logo text-left">
+        <!------------------close Slidebar ------------------>
+        <i class="fas fa-times fa-2x " (click)="close()"></i>
+    </div>
+
+    <!-----------------sidebar item ------------------->
+    <ul class="sidebar-navigation">
+        <li [routerLink]="['home']">
+            <a [routerLink]="['home']" (click)="close()">
+                <span> <i class="fa fa-home"></i></span> الصفحة الرئيسية
+
+            </a>
+        </li>
+        <li class="header"> </li>
+
+        <li [routerLink]="['market']">
+            <a [routerLink]="['market']" (click)="close()">
+                <i class="fas fa-store-alt"></i> الماركت
+            </a>
+        </li>
+        <li class="header"> </li>
+
+        <li [routerLink]="['clothes']">
+            <a [routerLink]="['clothes']" (click)="close()">
+                <i class="fas fa-tshirt"></i> الملابس الرجالي
+            </a>
+        </li>
+        <li [routerLink]="['clotheswomen']">
+            <a [routerLink]="['clotheswomen']" (click)="close()">
+                <i class="fas fa-tshirt"></i> الملابس الحريمي
+            </a>
+        </li>
+        <li [routerLink]="['clotheschild']">
+            <a [routerLink]="['clotheschild']" (click)="close()">
+                <i class="fas fa-tshirt"></i> الملابس الأطفالي
+            </a>
+        </li>
+        <li class="header"> </li>
+
+        <li>
+            <a [routerLink]="['shoesman']" (click)="close()">
+                <i class="fas fa-tshirt"></i> الأحذية الرجالي
+            </a>
+        </li>
+        <li [routerLink]="['shoeswoman']">
+            <a [routerLink]="['shoeswoman']" (click)="close()">
+                <i class="fas fa-tshirt"></i> الأحذية الحريمي
+            </a>
+        </li>
+        <li [routerLink]="['shoeschild']">
+            <a [routerLink]="['shoeschild']" (click)="close()">
+                <i class="fas fa-tshirt"></i> الأحذية الأطفالي
+            </a>
+        </li>
+        <li class="header"> </li>
+
+        <li>
+            <a [routerLink]="['glasses']" (click)="close()">
+                <i class="fas fa-glasses"></i> بصريات
+            </a>
+        </li>
+        <li class="header"> </li>
+
+        <li [routerLink]="['mobiles']">
+            <a [routerLink]="['mobiles']" (click)="close()">
+                <i class="fas fa-mobile"></i> الموبايلات
+            </a>
+        </li>
+
+        <li [routerLink]="['devicesElc']">
+            <a [routerLink]="['devicesElc']" (click)="close()">
+                <i class="fas fa-mobile"></i> الأجهزة ومستلزمات المطبخ
+            </a>
+        </li>
+        <li [routerLink]="['realestate']">
+            <a [routerLink]="['realestate']" (click)="close()">
+                <i class="fas fa-building"></i> العقارات
+            </a>
+        </li>
+
+        <li [routerLink]="['furniture']">
+            <a [routerLink]="['furniture']" (click)="close()">
+                <i class="fas fa-chair"></i> الاثاث المنزلي و المكتبي
+            </a>
+        </li>
+
+
+
+
+
+
+        <li [routerLink]="['cafe']">
+            <a [routerLink]="['cafe']" (click)="close()">
+                <i class="fas fa-coffee"></i> المطاعم والحلويات
+            </a>
+        </li>
+
+
+
+
+        <li [routerLink]="['devices']">
+            <a [routerLink]="['devices']" (click)="close()">
+                <i class="fas fa-fan"></i> فلاتر مياه و التبريد و التكييف
+            </a>
+        </li>
+
+
+
+
+        <li [routerLink]="['gifs']">
+            <a [routerLink]="['gifs']" (click)="close()">
+                <i class="fas fa-gifts"></i> هدايا و اكسسورات
+            </a>
+        </li>
+
+
+
+
+
+        <li class="header"> </li>
+        <li [routerLink]="['doctors']">
+            <a [routerLink]="['doctors']" (click)="close()">
+                <i class="fas fa-notes-medical"></i> الدكتور
+            </a>
+        </li>
+
+        <li [routerLink]="['pharmacy']">
+            <a [routerLink]="['pharmacy']" (click)="close()">
+                <i class="fas fa-clinic-medical"></i> الصيدليه
+            </a>
+        </li>
+
+        <li [routerLink]="['services']">
+            <a [routerLink]="['services']" (click)="close()">
+                <i class="fab fa-servicestack"></i> الخدمات
+            </a>
+        </li>
+        <li class="header"> </li>
+
+
+
+
+        <!-- <li [routerLink]="['problem']">
+            <a [routerLink]="['problem']" (click)="close()">
+                <i class="fas fa-sms"></i> الشكاوي
+            </a>
+        </li> -->
+
+
+        <li [routerLink]="['aboutus']">
+            <a [routerLink]="['aboutus']" (click)="close()">
+                <i class="fas fa-id-card-alt"></i> اتصل بنا
+            </a>
+        </li>
+        <li class="header"> </li>
+
+
+
+
+
+
+
+    </ul>
+</div>
+<!---------------------------End Sidebar ---------------------------->
+
+<mdb-navbar SideClass="navbar  " [containerInside]="false" style="background-color: #E5A352;">
+    <mdb-navbar-brand>
+        <a class="navbar-brand">
+            <img *ngIf="!imgShow" (click)="backtoHome()" src="../../../../assets/img/CART1.png" width="120px">
+        </a>
+    </mdb-navbar-brand>
+
+    <ul class="navbar-nav mr-auto  ml-auto nav-flex-icons">
+        <li class="nav-item">
+            <a class="nav-link ">
+                <img *ngIf="imgShow" (click)="backtoHome()" src="../../../../assets/img/CART1.png" width="120px"> </a>
+        </li>
+
+    </ul>
+
+
+    <ul class="navbar-nav mr-auto  ml-auto nav-flex-icons">
+        <li class="nav-item">
+            <a class="nav-link ">
+                <i class="fas fa-phone-volume fa-2x"> 0504954526</i> الخط الساخن</a>
+        </li>
+
+    </ul>
+
+
+
+    <ul class="navbar-nav mr-auto  ml-auto nav-flex-icons">
+        <li class="nav-item">
+            <a class="nav-link">
+                <i class="fas fa-mobile-alt fa-2x">
+                  01229337175
+              </i> خدمة العملاء
+            </a>
+        </li>
+    </ul>
+
+
+    <ul class="navbar-nav mr-auto nav-flex-icons">
+        <li class="nav-item">
+            <a class="nav-link text-danger">
+
+                <a class="badge badge-danger text-white" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" *ngIf="Lenght != 0"> {{Lenght}}</a>
+
+                <i (click)="NavigateToCart()" class="fas fa-cart-plus fa-2x" style="color: #E5A352;"></i></a>
+        </li>
+    </ul>
+</mdb-navbar>

@@ -1,0 +1,198 @@
+<form class="contact100-form validate-form">
+    <span class="contact100-form-title">
+</span>
+    <div class="row justify-content-center">
+        <div class="col-md-3 mb-5 ">
+            <div class="btn-group">
+                <button (click)="back()" type="button" mdbBtn color="primary" class="btn-back " mdbWavesEffect>
+              الرجوع إلي المحلات
+</button>
+
+
+            </div>
+
+        </div>
+        <div class="col-md-6 ">
+            <input class="input100" type="text" name="name" placeholder="ادخل اسم المنتج" [(ngModel)]="term">
+            <span class="focus-input100"></span>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</form>
+
+
+<div class="container-fluid mydiv" *ngIf="!Details">
+    <div class="row justify-content-center">
+        <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6" *ngFor="let products of proudct |searchsw:term">
+            <div class="single-product">
+                <span class="categoryname"> {{products.categoryName}}</span>
+
+                <div class="product-thumb">
+                    <img [src]="products.imagePath" class="img-fluid " alt="">
+                </div>
+                <div class="product-title">
+                    <a>{{products.name}}</a>
+
+                </div>
+                <div class="product-btns">
+
+                    <div class="row justify-content-center">
+                        <div class=" col text-right" style="font-family: English; font-size: 12px;">{{products.price | currency:' ' :false}} <span style="font-family: Arabic3;">جنيه</span></div>
+                        <div class="col  was" style="font-family: English;">{{products.oldPrice | currency:' ' :false}} <span style="font-family: Arabic3;">جنيه</span></div>
+                    </div>
+
+                </div>
+                <div class="row justify-content-center">
+                    <button (click)="openDetails(products)" class="btn btn-block btn-click "> أضافة الي العربة
+<span> <i class="fas fa-cart-plus" ></i></span>
+
+</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+<div class="container-fluid " *ngIf="Details">
+    <div class="row mb-5">
+        <!-- product images in slider -->
+        <div class="col-md-5 mx-auto col-sm-6">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" [ngClass]="{active:isFirst}" *ngFor="let img of productDeatis ;
+                index as i;first as isFirst">
+                        <img [src]="Url+img.imagePath" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!-- product details -->
+
+        <div class="col-md-5  my-auto">
+            <div class="info text-center">
+                <div class="titles">
+                    <h2 class="transHeader"> </h2>
+                </div>
+                <h4><span class="mr-1"><strong> </strong></span></h4>
+                <p> {{description}}</p>
+
+
+                <div class=" my-2 ">
+                    <div class="def-number-input number-input safari_only py-2 d-flex justify-content-center">
+                        <div class="count-proud bg-light p-2 rounded shadow">
+
+                            <i class="fas fa-minus-circle mx-2" (click)="minusItem()" *ngIf="flag"></i>
+                            <input style="width: 50px; text-align : center; font-size: 16px; font-family: English;" type="text " [(ngModel)]="cart.quantity " class="rounded py-1 " name=" " id=" ">
+                            <i class="fas fa-plus-circle mx-2" (click)="plusItem()"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button type="button" class="btn addCart  btn-md mr-1 mb-2" (click)="postCart()"><i
+                            class="fas fa-shopping-cart pr-2 ml-2" ></i>اضافة الى العربة</button>
+                        <button type="button" class="btn addProd btn-md mr-1 mb-2" (click)="products()"> الرجوع الي المنتجات</button>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<ng-template #template>
+    <div class="ant-notification-notice-content">
+        <div class="ant-notification-notice-with-icon">
+            <span class="ant-notification-notice-icon"><i nz-icon nzType="smile" style="color: rgb(16, 142, 233);"></i></span>
+            <div class="ant-notification-notice-message"> شكرا لك</div>
+            <div class="ant-notification-notice-description">
+                تم اضافه المنتج الي العربه بنجاح
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!-- <button nz-button (click)="createBasicNotification(template)">
+    Open the notification box
+  </button> -->
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <img [src]="image">
+                        <label style="text-align: right; float: right;"> الكمية </label>
+                        <input type="number" class="form-control" [(ngModel)]="cart.quantity">
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary" (click)="postCart()">اضافة الي العربة</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <img [src]="image">
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <label>   القسم : </label>
+                        <a> {{categoryName}}</a>
+                        <br>
+                        <label>   اسم المحل : </label>
+                        <a> {{supplierName}}</a>
+                        <br>
+                        <label>   السعر  : </label>
+                        <a> {{price}}   <span> جنية</span></a>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: Arabic3;">اغلاق</button>
+            </div>
+        </div>
+    </div>
+</div>

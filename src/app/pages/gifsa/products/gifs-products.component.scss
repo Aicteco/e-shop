@@ -1,0 +1,21 @@
+@import'../../market/products/market-products.component.scss';
+.route {
+    font-size: 15px;
+    font-family: Arabic3;
+    color: #EFB773 !important;
+}
+
+.navbar {
+    box-shadow: none;
+}
+
+.fas {
+    color: #EFB773 !important;
+}
+
+a {
+    color: #EFB773 !important;
+    &:hover {
+        color: #EFB773 !important;
+    }
+}

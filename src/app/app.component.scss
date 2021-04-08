@@ -1,0 +1,27 @@
+@import '~swiper/swiper-bundle';
+@font-face {
+    font-family: Arabic;
+    src: url("../assets/fonts/18271-18271-18271-7438358.ttf");
+}
+
+@font-face {
+    font-family: Arabic2;
+    src: url("../assets/fonts/a-massir-ballpoint.ttf");
+}
+
+@font-face {
+    font-family: English;
+    src: url("../assets/fonts/NotoSansTC-Bold.otf");
+}
+
+@font-face {
+    font-family: Arabic3;
+    src: url("../assets/fonts/ArbFONTS-GE_SS_TWO_MEDIUM.otf");
+}
+
+p {
+    font-family: Arabic2;
+    text-align: center;
+    font-size: 30px;
+    color: #1B5B84;
+}

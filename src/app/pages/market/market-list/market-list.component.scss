@@ -1,0 +1,187 @@
+@import '../../problem/problem.component.scss';
+section {
+    background-color: #cccccc;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg %3E%3Crect fill='%23cccccc' width='11' height='11'/%3E%3Crect fill='%23cdcdcc' x='10' width='11' height='11'/%3E%3Crect fill='%23cdcdcd' y='10' width='11' height='11'/%3E%3Crect fill='%23cececd' x='20' width='11' height='11'/%3E%3Crect fill='%23cecece' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%23cfcfce' y='20' width='11' height='11'/%3E%3Crect fill='%23cfcfcf' x='30' width='11' height='11'/%3E%3Crect fill='%23d0d0cf' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%23d1d0d0' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%23d1d1d0' y='30' width='11' height='11'/%3E%3Crect fill='%23d2d1d1' x='40' width='11' height='11'/%3E%3Crect fill='%23d2d2d1' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%23d3d2d1' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%23d3d3d2' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%23d4d3d2' y='40' width='11' height='11'/%3E%3Crect fill='%23d5d4d3' x='50' width='11' height='11'/%3E%3Crect fill='%23d5d4d3' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%23d6d5d4' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%23d6d5d4' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%23d7d6d5' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%23d7d6d5' y='50' width='11' height='11'/%3E%3Crect fill='%23d8d7d6' x='60' width='11' height='11'/%3E%3Crect fill='%23d9d7d6' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%23d9d8d6' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%23dad8d7' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%23dad9d7' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%23dbd9d8' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%23dbdad8' x='70' width='11' height='11'/%3E%3Crect fill='%23dcdad9' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%23dddbd9' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%23dddbda' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%23dedcda' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%23dedcdb' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%23dfdddb' x='80' width='11' height='11'/%3E%3Crect fill='%23dfdddb' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%23e0dedc' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%23e1dedc' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%23e1dfdd' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%23e2dfdd' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%23e2e0de' x='90' width='11' height='11'/%3E%3Crect fill='%23e3e0de' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%23e4e1df' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%23e4e1df' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23e5e2e0' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23e5e2e0' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23e6e3e1' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23e6e3e1' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23e7e4e1' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23e8e4e2' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23e8e5e2' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23e9e5e3' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23e9e6e3' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23eae6e4' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23ebe7e4' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23ebe7e5' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23ece8e5' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23ece8e6' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23ede9e6' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23ede9e7' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23eeeae7' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 92vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding: 70px 0;
+}
+
+p {
+    font-family: Arabic3;
+    font-size: 18px;
+}
+
+.title-white {
+    color: white;
+}
+
+.title-black {
+    color: black;
+}
+
+.img-fluid {
+    width: 100%;
+    height: 300px !important;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 2.25rem;
+}
+
+
+/*
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  transition: 0.4s;
+}
+*/
+
+h5 {
+    font-family: Arabic3;
+    color: #E5A352 !important;
+}
+
+.text-muted {
+    color: white;
+    border-radius: 10px;
+    font-family: Arabic3;
+}
+
+.btn-product {
+    color: white;
+    font-family: Arabic3;
+    border-radius: 10px;
+}
+
+.btn-dangers {
+    background-color: #E5A352;
+    color: white;
+    border-radius: 10px;
+    font-family: Arabic3;
+    font-size: 18px;
+}
+
+.btn-primary.dropdown-toggle {
+    background-color: #E5A352!important;
+    font-size: 18px;
+    border-radius: 10px;
+    font-family: Arabic3;
+    &:hover {
+        background-color: #E5A352!important;
+        font-size: 18px;
+        border-radius: 10px;
+        font-family: Arabic3;
+    }
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    color: #E5A352 !important;
+    font-size: 15px;
+    font-family: Arabic3;
+    text-align: right;
+    &:hover {
+        background-color: #E5A352 !important;
+        color: white !important;
+    }
+}
+
+.dropdown-menu {
+    width: fit-content !important;
+}
+
+.info p {
+    font-size: 18px;
+}
+
+.info h4 span {
+    color: #03c48a;
+}
+
+.addProd {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+.btn-secondary.dropdown-toggle {
+    border-radius: 10px;
+    background-color: #3f729b !important;
+    height: 50px !important;
+}
+
+.addCart {
+    background-color: #03c48a;
+    color: #fff;
+}
+
+.transHeader {
+    color: rgba(3, 196, 138, 0.3);
+    font-size: 70px;
+    line-height: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 50%;
+}
+
+label {
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.def-number-input input {
+    color: #03c48a;
+    font-size: 20px;
+    width: 70px;
+    text-align: center;
+    border-bottom: 1px solid #03c48a;
+}
+
+.count-proud i {
+    color: #03c48a;
+    font-size: 20px;
+}
+
+.img-fluid {
+    height: 50vh;
+}

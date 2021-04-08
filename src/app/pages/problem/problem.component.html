@@ -1,0 +1,56 @@
+<div class="page-header">
+
+    <div class="container-contact100">
+
+        <div class="wrap-contact100">
+            <form class="contact100-form validate-form">
+                <span class="contact100-form-title">
+              <h5> الشكاوي و المقترحات </h5>
+            </span>
+
+                <div class="wrap-input100 validate-input" data-validate="Please enter your name">
+                    <label class="mr-4"> الاسم الاول </label>
+
+                    <input class="input100" type="text" name="name" [(ngModel)]="contact.firstName" [ngModelOptions]="{standalone: true}">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Please enter your email: e@a.x">
+                    <label class="mr-4"> الاسم الآخير </label>
+
+                    <input class="input100" type="text" [(ngModel)]="contact.lastName" autocomplete="off" [ngModelOptions]="{standalone: true}">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Please enter your phone">
+                    <label class="mr-4"> رقم الموبايل</label>
+                    <input style="font-family: English !important;" class="input100" type="text" [(ngModel)]="contact.phone" autocomplete="off" [ngModelOptions]="{standalone: true}">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Please enter your phone">
+                    <label class="mr-4">  البريد الالكتروني</label>
+
+                    <input style="font-family: English !important;" class="input100" type="text" [(ngModel)]="contact.email" [ngModelOptions]="{standalone: true}">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Please enter your message">
+                    <label class="mr-4"> الشكوي </label>
+
+                    <textarea class="input100" name="message" [(ngModel)]="contact.message" [ngModelOptions]="{standalone: true}" rows="10"></textarea>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn" (click)="save()">
+          <span>
+            <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+            ارسال الشكوي
+          </span>
+        </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

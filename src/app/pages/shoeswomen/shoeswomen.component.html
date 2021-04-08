@@ -1,0 +1,54 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <div class="col-md-3">
+                <i class="fas fa-globe" style="margin-left: 10px;"></i>
+                <a style="font-family: Arabic;" nz-dropdown [nzDropdownMenu]="menu">
+                    <a class="text-icon">{{cityname}}</a>
+                    <i nz-icon nzType="down"></i>
+                </a>
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                    <ul nz-menu>
+                        <li *ngFor="let cities of cityList" nz-menu-item style="font-family: Arabic; text-align: center;" (click)="getsupplier(cities)"> {{cities.name}} </li>
+                    </ul>
+                </nz-dropdown-menu>
+            </div>
+        </a>
+    </div>
+</nav>
+
+
+<div class="container">
+
+    <div class="row">
+
+
+        <div class="col-md-3" *ngFor="let data of supplierList">
+
+
+            <div class="card-deck">
+                <div class="card">
+                    <img class="card-img-top" [src]="data.imagePath" alt="Card image cap">
+                    <div class="card-body" style="text-align: center;">
+                        <h5 class="card-title">{{data.name}}</h5>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <div class="row">
+                            <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="navigateToProduct(data.id)"> المنتجات
+                              <span>
+                                  <i class="fas fa-shopping-basket fa-2x"></i>
+                              </span> </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

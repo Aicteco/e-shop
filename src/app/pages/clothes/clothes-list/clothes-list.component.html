@@ -1,0 +1,51 @@
+<!-- start products-section -->
+<section>
+
+    <div class="container-fluid">
+        <form class="contact100-form validate-form">
+            <span class="contact100-form-title">
+    </span>
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-3">
+                    <div class="dropdown" style="font-family: Arabic3;">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      المدينة : {{cityname}}
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" *ngFor="let citys of cityList" (click)="selectCity(citys)">{{citys.name}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <input class="input100" type="text" name="name" placeholder="ادخل اسم المحل" [(ngModel)]="term">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+
+
+        </form>
+        <div class="row justify-content-center">
+
+
+            <div class="col-lg-3 col-md-3 mb-3" *ngFor="let data of supplierList |searchclothes:term">
+
+                <div class="card text-center">
+                    <img class="card-img-top" height="300px" [src]="data.imagePath" alt="Card image cap">
+                    <div class="card-body">
+                        <h5>{{data.name}}</h5>
+                        <button type="button" mdbBtn color="primary" class=" btn-product" (click)="navigateToProduct(data.id)" mdbWavesEffect>المنتجات</button>
+                    </div>
+                </div>
+
+
+            </div>
+            <!--Grid column-->
+
+
+        </div>
+    </div>
+
+
+
+</section>

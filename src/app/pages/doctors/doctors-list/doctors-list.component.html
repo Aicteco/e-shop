@@ -1,0 +1,121 @@
+<section>
+
+    <div class="container-fluid">
+
+        <form class="contact100-form validate-form" style="margin-bottom:20px">
+            <span class="contact100-form-title">
+</span>
+
+            <div class="row justify-content-center mb-5">
+                <!-- start products-section -->
+                <div class="col-md-3">
+                    <div class="dropdown" style="font-family: Arabic3;">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        المدينة : {{cityname}}
+                      </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" *ngFor="let citys of cityList" (click)="selectCity(citys)">{{citys.name}}</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="dropdown" style="font-family: Arabic3;">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                التخصص    {{categoryname}}
+              </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" *ngFor="let doc of doctorlist" (click)="selectcategoryname(doc)">{{doc.name}}</a>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <input class="input100" type="text" name="name" placeholder=" ادخل اسم الدكتور " [(ngModel)]="term">
+                    <span class="focus-input100"></span>
+
+                </div>
+
+            </div>
+
+
+        </form>
+        <div class="row justify-content-center mt-10">
+            <div class="col-lg-3 col-md-3 mb-3 mt-10" *ngFor="let data of doctorMan |searchdec:term" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" (click)="fill(data)">
+
+                <div class="card">
+                    <img class="card-img-top" height="300px" [src]="data.imagePath" alt="Card image cap">
+                    <div class="card-body">
+                        <p> الاسم : {{data.name}}</p>
+                        <p class="PhoneNumber"> <i class="fas fa-phone-square-alt"></i> {{data.phoneNumber}}</p>
+                        <p> <i class="fas fa-map-marker-alt"></i> {{data.address}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-success" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead"> المواعيد </p>
+
+
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+                <table class="table table-striped ">
+
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th>اليوم</th>
+                            <th> من </th>
+                            <th> إلي </th>
+
+
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+
+                    <!--Table body-->
+                    <tbody>
+                        <tr class="table-info" *ngFor="let days of doctortime">
+                            <td>{{days.doctorDay}}</td>
+                            <td style="font-family: English !important;">{{days.doctorTime }} </td>
+                            <td style="font-family: English !important;">{{days.toDoctorTime}} </td>
+
+
+
+                        </tr>
+
+                    </tbody>
+                    <!--Table body-->
+
+
+                </table>
+                <!--Table-->
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+
+                <a type="button" mdbBtn color="success" style="font-family: Arabic3 !important;" outline="true" class="waves-effect" mdbWavesEffect (click)="frame.hide()">أغلاق</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>

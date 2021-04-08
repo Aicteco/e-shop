@@ -1,0 +1,20 @@
+@import"../../market/market-list/market-list.component.scss";
+@import"../../problem/problem.component.scss";
+p {
+    font-family: Arabic3;
+    font-size: 16px;
+}
+
+.serviceCart {
+    margin-top: 10px;
+    // border: 1px solid #E5A352;
+    border-radius: 10px;
+}
+
+.btn {
+    font-family: Arabic3 !important;
+}
+
+.form-control {
+    border: 1px solid rgba(0, 0, 0, 0.048);
+}

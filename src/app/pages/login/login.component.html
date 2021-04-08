@@ -1,0 +1,125 @@
+<div class="container-contact100">
+    <div class="wrap-contact100">
+        <form class="contact100-form validate-form" [formGroup]='registerForm' name="form" #form="ngForm">
+            <span class="contact100-form-title">
+       تسجيل دخول
+      </span>
+
+
+
+
+
+            <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <label class="label-input100" for="email"> اسم المستخدم </label>
+                <input id="email" class="input100" style="font-family: English !important;" type="email" [(ngModel)]="user.email" name="email" autocomplete="off" [class.is-valid]="registerForm.get('email').errors == null && registerForm.get('email').touched" formControlName='email'>
+                <span class="focus-input100"></span>
+                <p *ngIf="registerForm.get('email').errors != null && registerForm.get('email').touched" class="py-2 ml-3 text-danger"> يجب ادخال البريد الإلكتروني </p>
+
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Name is required">
+                <label class="label-input100" for="name"> الرقم السري  </label>
+                <input id="name" class="input100" type="password" [(ngModel)]="user.password" name="password" autocomplete="off" [class.is-valid]="registerForm.get('password').errors == null && registerForm.get('password').touched" formControlName='password'>
+                <span class="focus-input100"></span>
+                <p *ngIf="registerForm.get('password').errors != null && registerForm.get('password').touched" class="py-2 ml-3 text-danger"> يجب ادخال الرقم السري</p>
+
+            </div>
+
+
+
+            <div class="container-contact100-form-btn">
+                <button class="contact100-form-btn" (click)="login()" [disabled]='registerForm.invalid'>
+                  تسجيل الدخول
+        </button>
+            </div>
+
+            <div class="contact100-form-social flex-c-m">
+                <div class="col-md-9">
+                    <a class="text-center"> ليس لديك حساب  ...  <span class="text-warning" (click)="NavigterTocreateAccount()">انشاء حساب</span> </a>
+
+                </div>
+                <div class="row justify-content-center">
+
+
+                    <div class="col-md-6 mt-2">
+
+                        <button class=" soical" (click)="signInWithFB()">
+                        تسجيل الدخول
+                        <span> <i class="fab fa-facebook-f mr-3"></i> </span>
+              </button>
+
+
+                    </div>
+
+
+
+                    <!--Facebook-->
+
+
+                    <!--Google +-->
+
+                </div>
+
+                <div class="row justify-content-center">
+
+
+                    <div class="col-md-6 mt-2">
+
+                        <button class=" soical " (click)="signInWithGoogle()">
+                      تسجيل الدخول
+                      <span> <i class="fab fa-google mr-3"></i> </span>
+            </button>
+
+
+                    </div>
+
+
+                    <!--Facebook-->
+
+
+                    <!--Google +-->
+
+                </div>
+
+            </div>
+
+
+
+
+
+        </form>
+
+        <div class="contact100-more flex-col-c-m" style="background-image: url('../../../assets/img/login.jpg'); ">
+        </div>
+    </div>
+</div>
+
+
+<!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '{520251066029914}',
+            cookie: true,
+            xfbml: true,
+            version: '{api-version}'
+        });
+
+        FB.AppEvents.logPageView();
+
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+</script> -->

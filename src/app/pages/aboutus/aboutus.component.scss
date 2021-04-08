@@ -1,0 +1,40 @@
+.title {
+    font-family: Arabic3;
+    color: #1B5B89;
+}
+
+.description {
+    font-family: Arabic3;
+    font-size: large;
+    color: #1B5B89;
+}
+
+.card {
+    background-color: #f0f8ffde;
+    box-shadow: 5px 5px 5px 5px #010408b0;
+    /* border: 5px solid; */
+    border-radius: 25px;
+    animation: animate ease-in-out 5s;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.page {
+    width: 100%;
+    height: 110vh;
+    background-size: cover;
+}
+
+.btn-primary {
+    background-color: #EFB773;
+}

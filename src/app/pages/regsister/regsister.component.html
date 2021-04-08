@@ -1,0 +1,82 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="wrap-login100">
+
+
+                    <form class="login100-form validate-form" [formGroup]='registerForm' class="p-5 bg-form justify-content-center animate__animated animate__backInRight animate__delay-1s" name="form" #form="ngForm">
+                        <span class="login100-form-title">
+    أنشاء حساب
+  </span>
+
+                        <div class=" wrap-input100 validate-input">
+                            <label>  الاسم الاول</label>
+
+                            <input class="form-control" type="text" name="firstName" [(ngModel)]="user.firstName" autocomplete="off" [class.is-valid]="registerForm.get('firstName').errors == null && registerForm.get('firstName').touched" formControlName='firstName'>
+                            <p *ngIf="registerForm.get('firstName').errors != null && registerForm.get('firstName').touched" class="py-2 ml-3 text-danger"> هذاالحقل مطلوب لاستكمال البيانات</p>
+
+
+                        </div>
+
+                        <div class="wrap-input100 validate-input">
+                            <label>  الاسم الأخير</label>
+
+                            <input class="form-control" type="text" name="lastName" [(ngModel)]="user.lastName" autocomplete="off" [class.is-valid]="registerForm.get('lastName').errors == null && registerForm.get('lastName').touched" formControlName='lastName'>
+                            <p *ngIf="registerForm.get('lastName').errors != null && registerForm.get('lastName').touched" class="py-2 ml-3 text-danger">هذا الحقل مطلوب</p>
+
+
+                        </div>
+
+
+
+
+
+
+
+                        <div class="wrap-input100 validate-input">
+                            <label> البريد الإلكتروني</label>
+                            <input class="form-control" style="font-family: English !important;" type="email" name="email" [(ngModel)]="user.email" autocomplete="off" [class.is-valid]="registerForm.get('email').errors == null && registerForm.get('email').touched" formControlName='email'>
+                            <p *ngIf="registerForm.get('email').errors != null && registerForm.get('email').touched" class="py-2 ml-3 text-danger">هذا الحقل مطلوب </p>
+
+                        </div>
+
+
+
+                        <div class="wrap-input100 validate-input">
+                            <label>   الرقم السري</label>
+
+                            <input class="form-control" style="font-family: English !important;" type="password" name="password" [(ngModel)]="user.password" autocomplete="off" [class.is-valid]="registerForm.get('password').errors == null && registerForm.get('password').touched"
+                                formControlName='password'>
+                            <p *ngIf="registerForm.get('password').errors != null && registerForm.get('password').touched" class="py-2 ml-3 text-danger"> يجب ادخال الرقم السري</p>
+
+
+                        </div>
+
+
+
+                        <div class="wrap-input100 validate-input">
+                            <label>  تأكيد الرقم السري</label>
+
+                            <input class="form-control" style="font-family: English !important;" type="password" name="confirmPassword" [(ngModel)]="user.confirmPassword" autocomplete="off" [class.is-valid]="registerForm.get('confirmPassword').errors == null && registerForm.get('confirmPassword').touched"
+                                formControlName='confirmPassword'>
+                            <p *ngIf="registerForm.get('confirmPassword').errors != null && registerForm.get('confirmPassword').touched" class="py-2 ml-3 text-danger"> يجب ادخال الرقم السري</p>
+
+                        </div>
+
+
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" (click)="save()" [disabled]='registerForm.invalid'>
+      أنشاء حساب
+    </button>
+                        </div>
+
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

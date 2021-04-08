@@ -1,0 +1,122 @@
+<!-- Image and text -->
+
+<div class="row">
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <form style="text-align: right;" [formGroup]='registerForm' name="form" #form="ngForm">
+                        <div class="form-row">
+                            <div class="col">
+                                <label>الاسم</label>
+                                <input type="text" [(ngModel)]="pahrmacy.name" class="form-control " autocomplete="off" [class.is-valid]="registerForm.get('customerName').errors == null && registerForm.get('customerName').touched" formControlName='customerName'>
+                                <p *ngIf="registerForm.get('customerName').errors != null && registerForm.get('customerName').touched" class="py-2 ml-3 text-danger">ادخل الاسم </p>
+
+                            </div>
+                            <div class="col">
+                                <label>رقم الموبايل</label>
+                                <input type="number" style="font-family:English  !important" class="form-control" [(ngModel)]="pahrmacy.phoneNumber" autocomplete="off" [class.is-valid]="registerForm.get('phoneNumber').errors == null && registerForm.get('phoneNumber').touched" formControlName='phoneNumber'>
+                                <p *ngIf="registerForm.get('phoneNumber').errors != null && registerForm.get('phoneNumber').touched" class="py-2 ml-3 text-danger">ادخل رقم الموبايل</p>
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="col">
+                                <label>العنوان</label>
+
+                                <input type="text" class="form-control" [(ngModel)]="pahrmacy.address" autocomplete="off" [class.is-valid]="registerForm.get('address').errors == null && registerForm.get('address').touched" formControlName='address'>
+                                <p *ngIf="registerForm.get('address').errors != null && registerForm.get('address').touched" class="py-2 ml-3 text-danger">ادخل العنوان</p>
+
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-bottom: 25%; margin-top: 10%;">
+                            <div class="col-md-12 col-sm-12 mx-auto" style="position:relative;">
+                                <div class="upload-container services-image" #SlideImg>
+                                    <input #image name="image" class=" " autocomplete="off" (change)="onFileChanged($event,'image')" type="file" accept="image/*">
+                                    <p><i class="fa fa-window-close" (click)="changebackground(SlideImg,'UserImageURL',true,'image')"></i></p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer" style="margin-top: 20%;">
+                    <button type="button" class="btn btn-primary" (click)="PostPharmacy()" [disabled]='registerForm.invalid'>  ارسال الروشتة   </button>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancal()">اغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<section>
+
+    <div class="container-fluid">
+
+        <form class="contact100-form validate-form">
+            <span class="contact100-form-title">
+</span>
+
+            <div class="row justify-content-center">
+
+
+                <div class="col-md-3">
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    اضافة روشتة
+                         </button>
+                    <!-- start products-section -->
+
+
+
+
+
+                </div>
+
+                <div class="dropdown" style="font-family: Arabic3;">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    المدينة : {{cityname}}
+                  </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" *ngFor="let citys of cityList" (click)="selectCity(citys)">{{citys.name}}</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input class="input100" type="text" name="name" placeholder="الاسم الاول " [(ngModel)]="term">
+                    <span class="focus-input100"></span>
+                </div>
+            </div>
+
+
+
+        </form>
+        <div class="row justify-content-center">
+
+
+            <div class="col-lg-3 col-md-3 mb-3 mt-3" *ngFor="let data of supplierList |searchp:term">
+                <div class="card text-center">
+                    <img class="card-img-top" height="300px" [src]="data.imagePath" alt="Card image cap">
+                    <div class="card-body">
+                        <h5>{{data.name}}</h5>
+                        <button type="button" mdbBtn color="primary" class=" btn-product" (click)="navigateToProduct(data.id)" mdbWavesEffect>المنتجات</button>
+                    </div>
+                </div>
+            </div>
+            <!--Grid colum-->
+
+
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,171 @@
+<!------------------------- Offers ----------------------------->
+<div class="section section-examples">
+    <div class="space-50"></div>
+    <div class="container-fluid text-center">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="card box-shadow">
+                    <div class="card-header">
+                        الفاتورة
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+
+                            <div class="row">
+                                <div class="col">
+                                    الاجمالي :
+                                </div>
+
+                                <div class="col" *ngIf="sum !=null" style="font-family: English;">
+                                    {{sum | currency:' ' :false}}
+
+                                    <span style="font-family: Arabic3;">
+                                        جنيه
+                                    </span>
+                                </div>
+                            </div>
+
+
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                     تأكيد الطلب
+                     </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <div class="modal-body">
+                                <form style="text-align: right;" [formGroup]='registerForm' name="form" #form="ngForm">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label>الاسم</label>
+                                            <input type="text" type="text" style="font-family: Arabic3 !important;" [(ngModel)]="order.customerName" class="form-control " autocomplete="off" [class.is-valid]="registerForm.get('customerName').errors == null && registerForm.get('customerName').touched"
+                                                formControlName='customerName'>
+                                            <p *ngIf="registerForm.get('customerName').errors != null && registerForm.get('customerName').touched" class="py-2 ml-3 text-danger">يجب ادخال اسم العميل</p>
+
+                                        </div>
+                                        <div class="col">
+                                            <label>رقم الموبايل</label>
+                                            <input type="number" type="text" style="font-family: English !important;" class="form-control" [(ngModel)]="order.phoneNumber" autocomplete="off" [class.is-valid]="registerForm.get('phoneNumber').errors == null && registerForm.get('phoneNumber').touched"
+                                                formControlName='phoneNumber'>
+                                            <p *ngIf="registerForm.get('phoneNumber').errors != null && registerForm.get('phoneNumber').touched" class="py-2 ml-3 text-danger">يجب ادخال رقم الموبايل</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+
+                                        <div class="col">
+                                            <label>العنوان</label>
+
+                                            <input type="text" style="font-family: Arabic3 !important;" class="form-control" [(ngModel)]="order.address" autocomplete="off" [class.is-valid]="registerForm.get('address').errors == null && registerForm.get('address').touched" formControlName='address'>
+                                            <p *ngIf="registerForm.get('address').errors != null && registerForm.get('address').touched" class="py-2 ml-3 text-danger">يجب ادخال العنوان</p>
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                </form>
+                            </div>
+                            <div class="modal-footer" style="margin-top: 20%;">
+                                <button type="button" class="btn btn-primary" (click)="postorder()" [disabled]='registerForm.invalid'>ارسال الطلب  </button>
+
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-sm-8">
+                <div class="card">
+
+                    <table class="table ">
+                        <thead>
+
+                            <th> صورة المنتج</th>
+                            <th> اسم المنتج</th>
+                            <th> الكمية</th>
+                            <th> الاجمالي</th>
+                            <th> ازالة</th>
+
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let data of cartList; let i=index">
+                                <td>
+                                    <img [src]="Url+data.image" style="width: 100px; height: 100px;">
+                                </td>
+                                <td>{{data.name}} </td>
+                                <td>
+                                    {{data.qty}}
+                                    <td style="font-family: English;">
+                                        {{data.totaleamount | currency:' ' :false}} <span class="mr-3" style="font-family: Arabic3;">جنيه</span> </td>
+                                    <td>
+                                        <i data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect class="fas fa-trash-alt" (click)="check(i)"></i>
+                                    </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---------------------------End Offers ------------------------>
+
+    =
+    <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-danger modal-side modal-top-right" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading">حذف المنتج</p>
+
+
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-3">
+                            <p></p>
+                            <p class="text-center">
+                                <!-- <mdb-icon fas icon="shopping-cart" size="4x"></mdb-icon> -->
+                            </p>
+                        </div>
+
+                        <div class="col-9">
+                            <p class="DELETE">هل أنت متأكد من حذف المنتج ؟</p>
+                            <h2>
+                                <!-- <mdb-badge danger="true">v52gs1</mdb-badge> -->
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button" mdbBtn color="primary" class="waves-effect" mdbWavesEffect (click)="delete()">حذف
+          <!-- <mdb-btn far icon="gem" class="ml-1"></mdb-btn> -->
+        </a>
+                    <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" style="font-family: Arabic3;" mdbWavesEffect (click)="frame.hide()" data-dismiss="modal"> لا , شكرا </a>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>

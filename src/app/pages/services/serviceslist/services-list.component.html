@@ -1,0 +1,130 @@
+<!-- start products-section -->
+<section>
+
+    <div class="container-fluid">
+        <form class="contact100-form validate-form">
+            <span class="contact100-form-title">
+</span>
+
+            <div class="row justify-content-center mb-5">
+                <!-- start products-section -->
+                <div class="col-md-3">
+                    <div class="dropdown" style="font-family: Arabic3;">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          المدينة : {{cityname}}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" *ngFor="let citys of cityList" (click)="selectCity(citys)">{{citys.name}}</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="dropdown" style="font-family: Arabic3;">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                التخصص    {{categoryname}}
+              </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" *ngFor="let doc of service" (click)="selectcategoryname(doc)">{{doc.name}}</a>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-6">
+                    <input class="input100" type="text" name="name" placeholder="الاسم الاول " [(ngModel)]="term">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+
+
+
+        </form>
+        <div class="row justify-content-center">
+
+
+            <div class="col-md-3 col-xs-2 serviceCart" *ngFor="let data of serviceman |searchser :term">
+
+                <div class="card text-center">
+                    <img class="card-img-top" height="300px" [src]="Url+data.imagePath" alt="Card image cap">
+                    <div class="card-body">
+                        <p> الاسم : {{data.name}}</p>
+                        <p> <i class="fas fa-map-marker-alt"></i> {{data.address}}</p>
+                        <button (click)="fill(data)" type="button" class="btn btn-primary" style="font-family: Arabic3; background-color: #1B5B84 !important;" data-toggle="modal" data-target="#exampleModal">
+                          طلب خدمة
+                               </button> </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <form style="text-align: right;" [formGroup]='registerForm' name="form" #form="ngForm">
+                    <div class="form-row">
+                        <div class="col">
+                            <label>الاسم</label>
+                            <input type="text" [(ngModel)]="contact.firstName" class="form-control " autocomplete="off" [class.is-valid]="registerForm.get('firstName').errors == null && registerForm.get('firstName').touched" formControlName='firstName'>
+                            <p *ngIf="registerForm.get('firstName').errors != null && registerForm.get('firstName').touched" class="py-2 ml-3 text-danger">ادخل الاسم </p>
+
+                        </div>
+
+
+                        <div class="col">
+                            <label>رقم الموبايل</label>
+                            <input type="number" style="font-family:English  !important" class="form-control" [(ngModel)]="contact.phone" autocomplete="off" [class.is-valid]="registerForm.get('phone').errors == null && registerForm.get('phone').touched" formControlName='phone'>
+                            <p *ngIf="registerForm.get('phone').errors != null && registerForm.get('phone').touched" class="py-2 ml-3 text-danger">ادخل رقم الموبايل</p>
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="col">
+                            <label>العنوان</label>
+
+                            <input type="text" class="form-control" [(ngModel)]="contact.email" autocomplete="off" [class.is-valid]="registerForm.get('email').errors == null && registerForm.get('email').touched" formControlName='email'>
+                            <p *ngIf="registerForm.get('email').errors != null && registerForm.get('email').touched" class="py-2 ml-3 text-danger">ادخل العنوان</p>
+
+                        </div>
+
+
+                        <div class="col">
+                            <label> اسم الفني</label>
+
+                            <input type="text" class="form-control" [value]="name" style="font-family: Arabic3;" readonly />
+
+                        </div>
+                    </div>
+
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer" style="margin-top: 20%;">
+                <button type="button" class="btn btn-primary" (click)="PostPharmacy()" [disabled]='registerForm.invalid'>  ارسال طلب الخدمة   </button>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #E5A352 !important;" (click)="cancal()">اغلاق</button>
+            </div>
+        </div>
+    </div>
+</div>
